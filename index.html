@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/e21d989b3c.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body onload="enableEditMode();">
+    <div class="navbar">
+        <h1 class="heading">Editrice</h1>
+      <div class="toolbar1">
+        <button class="formatting-element" id="bold" onClick="execCmd('bold');" title="bold">
+          <i class="formatting-element fas fa-bold"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="italic" onClick="execCmd('italic');">
+          <i class="formatting-element fas fa-italic" title="italic"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="underline"
+          onClick="execCmd('underline');"
+          title="underline"
+        >
+          <i class="formatting-element fas fa-underline"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="left-align"
+          onClick="execCmd('justifyLeft');"
+          title="left align"
+        >
+          <i class="formatting-element fas fa-align-left"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="justify-center"
+          onClick="execCmd('justifyCenter');"
+          title="align center"
+        >
+          <i class="formatting-element fas fa-align-center"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="right-align"
+          onClick="execCmd('justifyRight');"
+          title="align right"
+        >
+          <i class="formatting-element fas fa-align-right"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="justify"
+          onClick="execCmd('justifyFull');"
+          title="justify text"
+        >
+          <i class="formatting-element fas fa-align-justify"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="cut" onClick="execCmd('cut');" title="cut">
+          <i class="formatting-element fas fa-cut"></i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="copy" onClick="execCmd('copy');" title="copy">
+          <i class="formatting-element fas fa-copy"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="indent" onClick="execCmd('indent');" title="indent">
+          <i class="formatting-element fas fa-indent"></i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="outdent" onClick="execCmd('outdent');" title="outdent">
+          <i class="formatting-element fas fa-outdent"></i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="subscript"
+          onClick="execCmd('subscript');"
+          title="subscript"
+        >
+          <i class="formatting-element fas fa-subscript"></i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="superscript"
+          onClick="execCmd('superscript');"
+          title="superscript"
+        >
+          <i class="formatting-element fas fa-superscript"></i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="undo" onClick="execCmd('undo');" title="undo">
+          <i class="formatting-element fas fa-undo"></i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="redo" onClick="execCmd('redo');" title="redo">
+          <i class="formatting-element fas fa-redo"></i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="unordered-list"
+          onClick="execCmd('insertUnorderedList');"
+          title="unordered list"
+        >
+          <i class="formatting-element fas fa-list-ul"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="ordered-list"
+          onClick="execCmd('insertOrderedList');"
+          title="ordered list"
+        >
+          <i class="formatting-element fas fa-list-ol"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="paragraph"
+          onClick="execCmd('insertParagraph');"
+          title="paragraph"
+        >
+          <i class="formatting-element fas fa-paragraph"> </i>
+        </button class="formatting-element">
+      </div>
+      <div class="toolbar2">
+        <select
+          name="dropdown1"
+          id="dropdown1"
+          onChange="execCmd('formatBlock');"
+        >
+          <option value="H1" default>H1</option>
+          <option value="H2">H2</option>
+          <option value="H3">H3</option>
+          <option value="H4">H4</option>
+          <option value="H5">H5</option>
+          <option value="H6">H6</option>
+        </select>
+        <button class="formatting-element"
+          id="horizontal-line"
+          onClick="execCmd('insertHorizontalRule');"
+          title="horizontal line"
+        >
+          HR
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="create-link"
+          onClick="execCmd('createLink');"
+          title="create link"
+        >
+          <i class="formatting-element fas fa-link"></i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="unlink" onClick="execCmd('unlink');">
+          <i class="formatting-element fas fa-unlink"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element"
+          id="toggle-source"
+          onClick="toggleSource();"
+          title="toggle source"
+        >
+          <i class="formatting-element fas fa-code"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="toggle-edit" onClick="toggleEdit();" title="toggle source">
+          <i class="formatting-element fas fa-toggle-on"></i>
+        </button class="formatting-element">
+        <select
+          name="dropdown2"
+          id="dropdown2"
+          onChange="execCmdWithArg('fontName',this.value);"
+        >
+          <option value="Arial">Arial</option>
+          <option value="Comic Sans">Comic Sans</option>
+          <option value="Courier">Courier</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Tahoma">Tahoma</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+        <select
+          name="dropdown3"
+          id="dropdown3"
+          onChange="execCmdWithArg('fontSize',this.value);"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+        <div class="color-input-container">
+            Text
+            <input
+              type="color"
+              onChange="changeForeColor();"
+              id="fore-color"
+              value="#ff0000"
+            />
+            <button id="fore-reset" onClick="resetForeColor();">Reset</button>
+        </div>
+        <div class="color-input-container">
+            Background
+            <input
+              type="color"
+              onChange="changeBackColor();"
+              id="back-color"
+              value="#00ff00"
+            />
+            <button id="back-reset" onClick="resetBackColor();">Reset</button>
+        </div>
+        <button class="formatting-element"
+          id="image-file"
+          onClick="execCmdWithArg('insertImage',prompt('Enter the image URL'),'');"
+        >
+          <i class="formatting-element fas fa-file-image"> </i>
+        </button class="formatting-element">
+        <button class="formatting-element" id="select-all" onClick="execCmd('selectAll');">Select All</button class="formatting-element">
+      </div>
+    </div>
+    <div class="container">
+      <iframe
+        name="richTextField"
+        id="richTextField"
+        style="width: 1000px; height: 500px"
+        contenteditable="true"
+      ></iframe>
+    </div>
+
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
