@@ -44,3 +44,5 @@ if you do not have vscode installed or you do not have live server on vscode ins
 7. Type "127.0.0.1:5500" on your browser tab and press enter like this
 
    [click to open](https://drive.google.com/file/d/1SgGVYZS4bJ8zYmfuSyQRUWG5jSTg4GCk/view?usp=sharing)
+
+## There are some errors in viewing the icons after the internet is turned off i am working on fixing that
