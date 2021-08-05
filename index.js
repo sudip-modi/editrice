@@ -1,6 +1,14 @@
 //register serviceworker
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js");
+  console.log("registering service  worker");
+  navigator.serviceWorker
+    .register("/service-worker.js")
+    .then(function (reg) {
+      console.log("yes it did");
+    })
+    .catch(function (err) {
+      console.log("error ", err);
+    });
 }
 //serviceworker registration end
 
