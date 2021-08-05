@@ -2,7 +2,7 @@
 if ("serviceWorker" in navigator) {
   console.log("registering service  worker");
   navigator.serviceWorker
-    .register("/service-worker.js")
+    .register("/editrice/service-worker.js")
     .then(function (reg) {
       console.log("yes it did");
     })
