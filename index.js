@@ -1,11 +1,20 @@
+//register serviceworker
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js");
+}
+//serviceworker registration end
+
 var isSourceCode = false;
 var isInEditMode = true;
 
+//get all buttons
 const buttons = document.getElementsByTagName("button");
 const icons = document.getElementsByTagName("i");
 
+//counter variable
 var i;
 
+//add event listeners to all buttons
 for (i = 0; i < icons.length; i++) {
   icons[i].addEventListener("click", (e) => {
     console.log(e);
@@ -19,6 +28,7 @@ for (i = 0; i < icons.length; i++) {
   });
 }
 
+//enable design mode when document loaded
 function enableEditMode() {
   richTextField.document.designMode = "On";
 }
@@ -31,20 +41,24 @@ function exeCmdWithArg(command, arg) {
   richTextField.document.execCommand(command, true, arg);
 }
 
+//change foreground color for text
 function changeForeColor() {
   var color = document.getElementById("fore-color").value;
   richTextField.document.execCommand("foreColor", true, color);
 }
 
+//change background color for text
 function changeBackColor() {
   var color = document.getElementById("back-color").value;
   richTextField.document.execCommand("backColor", true, color);
 }
 
+//reset foreground color to default
 function resetForeColor() {
   richTextField.document.execCommand("foreColor", true, "#000000");
 }
 
+//reset background color to default
 function resetBackColor() {
   richTextField.document.execCommand("backColor", true, "#fff");
 }
